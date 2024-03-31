@@ -1,4 +1,5 @@
-Grocery Store Manager
+GROCERY STORE MANAGER
+
 This is a simple C program for managing a grocery store. It allows users to add items to their shopping cart, calculate the total bill, and display the final receipt.
 
 Features -
