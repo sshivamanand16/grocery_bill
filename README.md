@@ -10,10 +10,11 @@ Features -
 4. Bill Calculation: Calculate the total bill based on the items selected and their quantities.
 
 Usage -
-Compile the Program: Compile the main.c file using a C compiler.
 
-Login or Register: Follow the prompts to log in or register as a new user.
+~ Compile the Program: Compile the main.c file using a C compiler.
 
-Select Items: Choose items from the displayed list by entering their IDs and quantities.
+~ Login or Register: Follow the prompts to log in or register as a new user.
 
-View Bill: Once done selecting items, the program will display the final bill.
+~ Select Items: Choose items from the displayed list by entering their IDs and quantities.
+
+~ View Bill: Once done selecting items, the program will display the final bill.
