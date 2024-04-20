@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h> 
 #include <conio.h>
 #include "login.c"
 #include "products.c"
@@ -10,10 +11,13 @@ int main()
     if (log_func()) 
     {
         items_func();
-        int item[100];
-        int qty[100];
+        int *item; 
+        int *qty; 
         int c = 0;
         int input;
+        
+        item = (int*)malloc(100 * sizeof(int));
+        qty = (int*)malloc(100 * sizeof(int)); 
         
         while (1) 
         {   
@@ -49,6 +53,8 @@ int main()
             break;
         }
         
+        free(item);
+        free(qty);
     }
 
     else
