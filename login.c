@@ -1,59 +1,72 @@
 #include <stdio.h>
+#include <string.h>
 
-char registers[1000][2] = {0};
-int users = 0;
+int log_func();
 
-
-int reg()
+struct User 
 {
-    return 1;
+    char username[50];
+    char password[50];
+};
+
+struct User users[50] = {
+    {"trial","1234r"},
+    {"virat_kohli", "anushka@123"},
+    {"shivam", "123456"},
+    {"admin", "admin123"}};
+
+void registerUser() 
+{
+    static int userCount = 0;
+    if (userCount >= 50) {
+        printf("Maximum number of users reached!\n");
+        return;
+    }
+    
+    printf("Enter username: ");
+    scanf("%s", users[userCount].username);
+    printf("Enter password: ");
+    scanf("%s", users[userCount].password);
+    
+    printf("User registered successfully!\n");
+    userCount++;
+    printf("\n");
+    printf("Login Now - \n");
+    log_func();
 }
 
-int verify(char u[],char p[])
+int log_func() 
 {
-   return 1;
-}
-
-int log_func()
-{
-    int input;
-    char username[100];
-    char password[100];
-
-    while (1)
+    char username[50];
+    char password[50];
+    
+    printf("Enter username: ");
+    scanf("%s", username);
+    printf("Enter password: ");
+    scanf("%s", password);
+    
+    for (int i = 0; i < 50; i++) 
     {
-        printf("1. Login.\n");
-        printf("2. Register.\n");
-        printf("Input : ");
-        scanf("%d",&input);
-
-        switch(input)
+        if (strcmp(users[i].username, username) == 0 && strcmp(users[i].password, password) == 0) 
         {
-            case 1:
-                printf("Login Success\n");
-                printf("\n");
-                return 1;
-            case 2:
-                printf("Username : ");
-                scanf("%s",&username);
-                printf("Password : ");
-                scanf("%s",&password);
-                int check = verify(username,password);
-
-                if (check == 1)
-                {
-                    printf("\nSuccess.\n");
-                    break;
-                }
-
-                else
-                {
-                    printf("Login Failed.\n");
-                }
-                break;
-            default:
-                {}
+            printf("Login Successful\n");
+            printf("\n");
+            return 1; 
         }
     }
 
+    printf("Login unsuccessful\n");
+    printf("Do you want to register? (y/n): ");
+    char choice;
+    scanf(" %c", &choice); 
+
+    if (choice == 'y' || choice == 'Y') 
+    {
+        registerUser();
+    }
+    
+    else
+    {
+        return 0;
+    }
 }
